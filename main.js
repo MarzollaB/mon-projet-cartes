@@ -14,24 +14,26 @@ function showCarte(i) {
   const container = document.getElementById('card-container');
   container.innerHTML = '';
 
+  // Création de la carte
   const card = document.createElement('div');
   card.className = 'card';
   card.addEventListener('click', () => card.classList.toggle('flipped'));
 
-  // Face avant : images
+  // Face avant : images
   const front = document.createElement('div');
   front.className = 'card__face card__face--front';
   data.images.forEach(src => {
     const img = document.createElement('img');
-    img.src = `images/${src}`;
+    img.src = `images/${src}`;     // images/acidity_du_sol.jpg
     img.alt = data.titre;
-    img.style.maxWidth = '100%';
+    img.style.width = '100%';
+    img.style.height = 'auto';
     img.style.display = 'block';
     img.style.marginBottom = '8px';
     front.appendChild(img);
   });
 
-  // Face arrière : contenu texte
+  // Face arrière : texte
   const back = document.createElement('div');
   back.className = 'card__face card__face--back';
   back.innerHTML = `
@@ -49,17 +51,15 @@ function showCarte(i) {
   container.appendChild(card);
 }
 
-// Boutons de navigation
+// Navigation
 document.getElementById('prevBtn').addEventListener('click', () => {
   currentIndex = (currentIndex - 1 + cartes.length) % cartes.length;
   showCarte(currentIndex);
 });
-
 document.getElementById('nextBtn').addEventListener('click', () => {
   currentIndex = (currentIndex + 1) % cartes.length;
   showCarte(currentIndex);
 });
-
 document.getElementById('randomBtn').addEventListener('click', () => {
   currentIndex = Math.floor(Math.random() * cartes.length);
   showCarte(currentIndex);
