@@ -25,13 +25,23 @@ function renderCarte() {
   const card = document.createElement('div');
   card.className = 'card';
 
-  // RECTO : image uniquement
+  // RECTO : gestion d'une ou deux images
   const front = document.createElement('div');
-  front.className = 'front';
-  const img = document.createElement('img');
-  img.src = `images/${data.images[0]}`;
-  img.alt = data.titre;
-  front.appendChild(img);
+  front.className = 'front ' + (data.images.length === 2 ? 'double' : 'single');
+
+  if (data.images.length === 1) {
+    const img = document.createElement('img');
+    img.src = `images/${data.images[0]}`;
+    img.alt = data.titre;
+    front.appendChild(img);
+  } else {
+    data.images.forEach(src => {
+      const img = document.createElement('img');
+      img.src = `images/${src}`;
+      img.alt = data.titre;
+      front.appendChild(img);
+    });
+  }
 
   // VERSO : tous les champs JSON
   const back = document.createElement('div');
@@ -73,16 +83,16 @@ function renderCarte() {
     </div>
   `;
 
-  // Assemblage
+  // Assemblage des faces
   card.append(front, back);
   container.appendChild(card);
 
-  // Flip front/back au clic sur la carte
+  // Flip recto/verso au clic
   card.addEventListener('click', () => {
     card.classList.toggle('flipped');
   });
 
-  // Gestion des boutons (empêche la propagation du clic pour ne pas flipper)
+  // Navigation : empêcher le flip lors du clic sur un bouton
   back.querySelector('#prevBtn').addEventListener('click', e => {
     e.stopPropagation();
     currentIndex = (currentIndex - 1 + cartes.length) % cartes.length;
