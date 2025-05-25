@@ -16,16 +16,19 @@ function showCarte(i) {
   const container = document.getElementById('card-container');
   container.innerHTML = '';
 
-  // Création du conteneur de la carte
+  // Création de la carte
   const card = document.createElement('div');
   card.className = 'card';
-  card.addEventListener('click', () => card.classList.toggle('flipped'));
+  card.addEventListener('click', () => {
+    card.classList.toggle('flipped');
+    adjustCardHeight(card);
+  });
 
-  // RECTO : affichage de l'image principale
+  // RECTO : image
   const front = document.createElement('div');
   front.className = 'card__face card__face--front';
   const img = document.createElement('img');
-  img.src = `images/${data.images[0]}`;  // e.g. images/acidity_du_sol.jpg
+  img.src = `images/${data.images[0]}`;
   img.alt = data.titre;
   front.appendChild(img);
 
@@ -46,6 +49,22 @@ function showCarte(i) {
   card.appendChild(front);
   card.appendChild(back);
   container.appendChild(card);
+
+  // Ajuste la hauteur pour la face visible
+  adjustCardHeight(card);
+}
+
+// Ajuste la hauteur du conteneur .card en fonction de la face visible
+function adjustCardHeight(card) {
+  const isFlipped = card.classList.contains('flipped');
+  const visibleFace = isFlipped
+    ? card.querySelector('.card__face--back')
+    : card.querySelector('.card__face--front');
+
+  // Mesure la hauteur nécessaire
+  card.style.height = 'auto';
+  const neededHeight = visibleFace.getBoundingClientRect().height;
+  card.style.height = `${neededHeight}px`;
 }
 
 // Gestion des boutons
