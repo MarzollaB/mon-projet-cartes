@@ -32,7 +32,7 @@ function showCarte(i) {
   img.alt = data.titre;
   front.appendChild(img);
 
-  // VERSO : contenu structuré
+  // VERSO : texte structuré + boutons
   const back = document.createElement('div');
   back.className = 'card__face card__face--back';
   back.innerHTML = `
@@ -43,12 +43,34 @@ function showCarte(i) {
     <p>${data.verso.diagnostic}</p>
     <h4>Plan de lutte</h4>
     <ul>${data.verso.plan_de_lutte.map(p => `<li>${p}</li>`).join('')}</ul>
+    <div class="nav-buttons">
+      <button id="prevBtn">Précédent</button>
+      <button id="nextBtn">Suivant</button>
+      <button id="randomBtn">Aléatoire</button>
+    </div>
   `;
 
   // Assemblage et insertion
   card.appendChild(front);
   card.appendChild(back);
   container.appendChild(card);
+
+  // On attache les handlers sur les boutons à l'intérieur du verso
+  back.querySelector('#prevBtn').addEventListener('click', e => {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + cartes.length) % cartes.length;
+    showCarte(currentIndex);
+  });
+  back.querySelector('#nextBtn').addEventListener('click', e => {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % cartes.length;
+    showCarte(currentIndex);
+  });
+  back.querySelector('#randomBtn').addEventListener('click', e => {
+    e.stopPropagation();
+    currentIndex = Math.floor(Math.random() * cartes.length);
+    showCarte(currentIndex);
+  });
 
   // Ajuste la hauteur pour la face visible
   adjustCardHeight(card);
@@ -66,17 +88,3 @@ function adjustCardHeight(card) {
   const neededHeight = visibleFace.getBoundingClientRect().height;
   card.style.height = `${neededHeight}px`;
 }
-
-// Gestion des boutons
-document.getElementById('prevBtn').addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + cartes.length) % cartes.length;
-  showCarte(currentIndex);
-});
-document.getElementById('nextBtn').addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % cartes.length;
-  showCarte(currentIndex);
-});
-document.getElementById('randomBtn').addEventListener('click', () => {
-  currentIndex = Math.floor(Math.random() * cartes.length);
-  showCarte(currentIndex);
-});
