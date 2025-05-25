@@ -33,7 +33,7 @@ body {
   padding-bottom: 40px;
 }
 
-/* Carte (même espace pour recto/verso) */
+/* Carte : espace fixe pour recto/verso */
 .card {
   width: 50vw;
   max-width: 600px;
@@ -42,39 +42,62 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   overflow: hidden;
   cursor: pointer;
-  position: relative;
 }
 
-/* FRONT : conteneur des images */
+/* FRONT */
 .card .front {
-  position: relative;
-  padding: 0;
+  /* on aligne les enfants en colonne (images + boutons) */
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+  padding: 0;
 }
 
-/* Image unique centrée */
+/* Single image full width */
 .card .front.single img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* Deux images pleines */
+/* Double images side by side */
+.card .front.double {
+  display: flex;
+}
 .card .front.double img {
   width: 50%;
   height: auto;
-  display: inline-block;
+  object-fit: contain; /* conserve l’intégralité de l’image */
 }
 
-/* VERSO : caché par défaut */
+/* Boutons sous les images */
+.front .nav-buttons {
+  margin-top: 8px;
+  padding: 8px 0;
+  text-align: center;
+  background: #f0f0f0;
+}
+.front .nav-buttons button {
+  margin: 0 8px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}
+.front .nav-buttons button:hover {
+  background: #0056b3;
+}
+
+/* VERSO (caché par défaut) */
 .card .back {
   display: none;
   padding: 16px;
   box-sizing: border-box;
 }
 
-/* Flip : on inverse front/back */
+/* Flip recto/verso */
 .card.flipped .front {
   display: none;
 }
@@ -93,24 +116,4 @@ body {
 }
 .back p {
   margin-bottom: 1em;
-}
-
-/* Boutons de navigation sous l'image */
-.front .nav-buttons {
-  margin-top: 8px;
-  padding: 8px 0;
-  text-align: center;
-  background: #f0f0f0;
-}
-.front .nav-buttons button {
-  margin: 0 8px;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  background: #007bff;
-  color: white;
-  cursor: pointer;
-}
-.front .nav-buttons button:hover {
-  background: #0056b3;
 }
