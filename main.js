@@ -1,3 +1,5 @@
+// main.js
+
 document.addEventListener('DOMContentLoaded', loadCartes);
 
 let cartes = [];
@@ -14,26 +16,20 @@ function showCarte(i) {
   const container = document.getElementById('card-container');
   container.innerHTML = '';
 
-  // Création de la carte
+  // Création du conteneur de la carte
   const card = document.createElement('div');
   card.className = 'card';
   card.addEventListener('click', () => card.classList.toggle('flipped'));
 
-  // Face avant : images
+  // RECTO : affichage de l'image principale
   const front = document.createElement('div');
   front.className = 'card__face card__face--front';
-  data.images.forEach(src => {
-    const img = document.createElement('img');
-    img.src = `images/${src}`;     // images/acidity_du_sol.jpg
-    img.alt = data.titre;
-    img.style.width = '100%';
-    img.style.height = 'auto';
-    img.style.display = 'block';
-    img.style.marginBottom = '8px';
-    front.appendChild(img);
-  });
+  const img = document.createElement('img');
+  img.src = `images/${data.images[0]}`;  // e.g. images/acidity_du_sol.jpg
+  img.alt = data.titre;
+  front.appendChild(img);
 
-  // Face arrière : texte
+  // VERSO : contenu structuré
   const back = document.createElement('div');
   back.className = 'card__face card__face--back';
   back.innerHTML = `
@@ -46,12 +42,13 @@ function showCarte(i) {
     <ul>${data.verso.plan_de_lutte.map(p => `<li>${p}</li>`).join('')}</ul>
   `;
 
+  // Assemblage et insertion
   card.appendChild(front);
   card.appendChild(back);
   container.appendChild(card);
 }
 
-// Navigation
+// Gestion des boutons
 document.getElementById('prevBtn').addEventListener('click', () => {
   currentIndex = (currentIndex - 1 + cartes.length) % cartes.length;
   showCarte(currentIndex);
