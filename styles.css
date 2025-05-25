@@ -43,20 +43,20 @@ body {
   overflow-x: auto;
 }
 
-/* Wrapper for images: 200% width to hold two 100% images side-by-side */
-.card .front.double .images-wrapper {
-  display: flex;
-  width: 200%;
-}
-.card .front.double .images-wrapper img {
-  width: 50%;
+/* Single image full width */
+.card .front.single img {
+  width: 100%;
   height: auto;
   object-fit: contain;
 }
 
-/* Single image full width */
-.card .front.single img {
-  width: 100%;
+/* Double images side by side with wrapper at 100% */
+.card .front.double .images-wrapper {
+  display: flex;
+  width: 100%;       /* wrapper now at 100% */
+}
+.card .front.double .images-wrapper img {
+  width: 50%;       /* each image takes half the wrapper */
   height: auto;
   object-fit: contain;
 }
@@ -79,6 +79,7 @@ body {
 }
 .front .nav-buttons button:hover { background: #0056b3; }
 
+/* VERSO */
 .card .back {
   display: none;
   padding: 16px;
