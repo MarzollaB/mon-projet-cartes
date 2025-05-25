@@ -43,7 +43,7 @@ function renderCarte() {
     });
   }
 
-  // Ajout des boutons de navigation sur le front
+  // Boutons de navigation sous l'image
   const navDiv = document.createElement('div');
   navDiv.className = 'nav-buttons';
   navDiv.innerHTML = `
@@ -91,7 +91,7 @@ function renderCarte() {
   card.append(front, back);
   container.appendChild(card);
 
-  // Flip recto/verso au clic sur la carte (hors boutons)
+  // Flip recto/verso au clic (hors boutons)
   card.addEventListener('click', e => {
     if (e.target.tagName.toLowerCase() === 'button') return;
     card.classList.toggle('flipped');
