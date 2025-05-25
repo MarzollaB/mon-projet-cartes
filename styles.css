@@ -33,7 +33,7 @@ body {
   padding-bottom: 40px;
 }
 
-/* Carte */
+/* Carte (même structure pour recto/verso) */
 .card {
   width: 50vw;
   max-width: 600px;
@@ -44,19 +44,23 @@ body {
   cursor: pointer;
 }
 
-/* Recto et verso */
-.front, .back {
+/* Front et back partagent le même espace */
+.card .front,
+.card .back {
   width: 100%;
   padding: 16px;
   box-sizing: border-box;
 }
 
-/* Au départ, on cache le verso */
-.back {
+/* Par défaut : front visible, back caché */
+.card .front {
+  display: block;
+}
+.card .back {
   display: none;
 }
 
-/* Quand flipped, on cache le front, affiche le back */
+/* Après flip : back visible, front caché */
 .card.flipped .front {
   display: none;
 }
@@ -64,7 +68,7 @@ body {
   display: block;
 }
 
-/* Image responsive */
+/* Image responsive en recto */
 .front img {
   width: 100%;
   height: auto;
@@ -72,13 +76,19 @@ body {
 }
 
 /* Styles du verso */
-.back h3, .back h4 {
+.back h3,
+.back h4 {
   margin-top: 0;
 }
 .back ul {
   margin-left: 1em;
   margin-bottom: 1em;
 }
+.back p {
+  margin-bottom: 1em;
+}
+
+/* Boutons de navigation */
 .nav-buttons {
   text-align: center;
   margin-top: 16px;
