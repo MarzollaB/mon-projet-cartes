@@ -1,39 +1,39 @@
 [
-{
-"id": 1,
-"titre": "Acidité du sol",
-"images": [
-"Acidité_du_sol.jpg"
-],
-"verso": {
-"symptomes_visibles": [
-"Croissance ralentie des plantes malgré de bonnes conditions climatiques",
-"Feuilles pâles, parfois rougeâtres ou violacées",
-"Apparition en foyers ou sur des zones spécifiques du champ",
-"Présence possible de mousse, ou sol visuellement compact et pauvre en vers de terre"
-],
-"localisation_dans_le_champ": "Zones compactes ou peu amendées – en foyer",
-"feuilles_atteintes": "Toutes feuilles (ralentissement global)",
-"repartition_sur_la_feuille": "Feuilles pâles à violacées selon la carence induite",
-"symptomes_secondaires": [
-"Croissance ralentie, plantes chétives"
-],
-"diagnostic": "Acidité du sol",
-"plan_de_lutte": [
-"Amendement calcaire raisonné après analyse de sol",
-"Choix d’amendement adapté (calcaire magnésien, dolomie, etc.)",
-"Correction du pH pour atteindre la zone de neutralité adaptée aux céréales (pH 6.5 à 7)"
-],
-"leviers_agronomiques": [
-"Rotation intégrant des cultures moins sensibles à l’acidité (ex : seigle, avoine)",
-"Travail du sol structurant (ameublissement, décompactage)",
-"Apports de matière organique pour tamponner les variations de pH"
-],
-"notes_complementaires": [
-"L’acidité du sol bloque l’assimilation de certains éléments (P, Mg, Ca)",
-"Peut entraîner des carences secondaires même en présence d’éléments disponibles",
-"Analyse de sol indispensable avant toute correction calcique"
-]
-}
-}
+  {
+    "id": 1,
+    "titre": "Acidité du sol",
+    "images": [
+      "acidity_du_sol.jpg"
+    ],
+    "verso": {
+      "symptomes_visibles": [
+        "Croissance ralentie des plantes malgré de bonnes conditions climatiques",
+        "Feuilles pâles, parfois rougeâtres ou violacées",
+        "Apparition en foyers ou sur des zones spécifiques du champ",
+        "Présence possible de mousse, ou sol visuellement compact et pauvre en vers de terre"
+      ],
+      "localisation_dans_le_champ": "Zones compactes ou peu amendées – en foyer",
+      "feuilles_atteintes": "Toutes feuilles (ralentissement global)",
+      "repartition_sur_la_feuille": "Feuilles pâles à violacées selon la carence induite",
+      "symptomes_secondaires": [
+        "Croissance ralentie, plantes chétives"
+      ],
+      "diagnostic": "Acidité du sol",
+      "plan_de_lutte": [
+        "Amendement calcaire raisonné après analyse de sol",
+        "Choix d’amendement adapté (calcaire magnésien, dolomie, etc.)",
+        "Correction du pH pour atteindre la zone de neutralité adaptée aux céréales (pH 6.5 à 7)"
+      ],
+      "leviers_agronomiques": [
+        "Rotation intégrant des cultures moins sensibles à l’acidité (ex : seigle, avoine)",
+        "Travail du sol structurant (ameublissement, décompactage)",
+        "Apports de matière organique pour tamponner les variations de pH"
+      ],
+      "notes_complementaires": [
+        "L’acidité du sol bloque l’assimilation de certains éléments (P, Mg, Ca)",
+        "Peut entraîner des carences secondaires même en présence d’éléments disponibles",
+        "Analyse de sol indispensable avant toute correction calcique"
+      ]
+    }
+  }
 ]
