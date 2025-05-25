@@ -1,93 +1,103 @@
 /* styles.css */
 
-/* Mise en page générale */
+/* Reset minimal */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Corps de page */
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
   background: #f5f5f5;
   color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Introduction */
 .intro {
   max-width: 800px;
-  margin: 40px auto 20px;
-  padding: 0 20px;
   text-align: center;
+  margin: 40px 20px 20px;
 }
-
 .intro h1 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
 }
-
 .intro p {
-  font-size: 1rem;
   line-height: 1.5;
 }
 
-/* Conteneur de la carte */
+/* Container centré */
 .container {
-  text-align: center;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-/* Carte avec flip 3D et largeur adaptative */
+/* Perspective autour de la carte */
+.scene {
+  perspective: 1000px;
+}
+
+/* Carte */
 .card {
-  width: 50vw;                   /* 50% de la largeur de la fenêtre */
-  max-width: 600px;              /* jamais plus de 600px */
-  margin: 0 auto;                /* centrée horizontalement */
-  transform-style: preserve-3d;  /* pour l’effet 3D */
-  transition: transform 0.6s, height 0.3s; /* flip + hauteur */
+  width: 50vw;
+  max-width: 600px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
   cursor: pointer;
-  position: relative;            /* contexte pour faces */
-  overflow: hidden;              /* masque le débordement */
-  height: auto;                  /* géré dynamiquement */
 }
 
-/* Faces : superposées */
-.card__face {
+/* Faces communes */
+.face {
   position: absolute;
   top: 0; left: 0;
   width: 100%;
+  /* backface-visibility pour cacher la face dos quand non visible */
   backface-visibility: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,.1);
   padding: 16px;
-  box-sizing: border-box;
-  transform-origin: center;
+  overflow-y: auto;     /* permet le scroll interne si le texte est long */
 }
 
-/* Face avant (recto) : image uniquement */
-.card__face--front {
-  transform: rotateY(0);
+/* Recto (front) : l’image */
+.face.front {
+  transform: rotateY(0deg);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
-
-.card__face--front img {
+.face.front img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* Face arrière (verso) : texte + boutons */
-.card__face--back {
+/* Verso (back) : texte + boutons */
+.face.back {
   transform: rotateY(180deg);
-  overflow-y: auto;
+  z-index: 1;
 }
-
-.card__face--back h3,
-.card__face--back h4 {
+.face.back h3, .face.back h4 {
   margin-top: 0;
 }
-
-.nav-buttons {
-  margin-top: 16px;
-  text-align: center;
+.face.back ul {
+  margin: 0 0 1em 1em;
 }
 
+/* Navigation interne vers o (boutons) */
+.nav-buttons {
+  text-align: center;
+  margin-top: 16px;
+}
 .nav-buttons button {
   margin: 0 8px;
   padding: 8px 12px;
@@ -97,12 +107,17 @@ body {
   color: white;
   cursor: pointer;
 }
-
 .nav-buttons button:hover {
   background: #0056b3;
 }
 
-/* Flip state */
+/* Flip : on tourne la carte, puis on swap les z-index */
 .card.flipped {
   transform: rotateY(180deg);
+}
+.card.flipped .front {
+  z-index: 1;
+}
+.card.flipped .back {
+  z-index: 2;
 }
