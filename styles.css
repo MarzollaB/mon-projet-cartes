@@ -37,12 +37,16 @@ body {
   max-width: 600px;              /* jamais plus de 600px */
   margin: 0 auto;                /* centrée horizontalement */
   transform-style: preserve-3d;  /* pour conserver l’effet 3D */
-  transition: transform 0.6s;    /* animation du flip */
+  transition: transform 0.6s, height 0.3s; /* flip + ajustement de hauteur */
   cursor: pointer;
+  position: relative;            /* nécessaire pour le positionnement des faces */
+  height: auto;                  /* laissé en auto, JS le calibrera */
 }
 
-/* Faces : intégrées au flux normal pour hauteur auto */
+/* Faces : superposées, hauteur automatique gérée par JS */
 .card__face {
+  position: absolute;
+  top: 0; left: 0;
   width: 100%;
   backface-visibility: hidden;
   border-radius: 8px;
@@ -50,7 +54,6 @@ body {
   background: white;
   padding: 16px;
   box-sizing: border-box;
-  position: relative;     /* permet à la carte de grandir en hauteur */
   transform-origin: center;
 }
 
