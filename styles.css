@@ -33,7 +33,7 @@ body {
   padding-bottom: 40px;
 }
 
-/* Carte (conserve le même espace pour recto/verso) */
+/* Carte (même espace pour recto/verso) */
 .card {
   width: 50vw;
   max-width: 600px;
@@ -45,36 +45,26 @@ body {
   position: relative;
 }
 
-/* FRONT : une ou deux images */
+/* FRONT : conteneur des images */
 .card .front {
   position: relative;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Mode « single » : image centrée */
+/* Image unique centrée */
 .card .front.single img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* Mode « double » : deux images en plein format dans les coins */
-.card .front.double {
-  height: auto;
-}
+/* Deux images pleines */
 .card .front.double img {
-  position: absolute;
   width: 50%;
   height: auto;
-  object-fit: cover;
-}
-.card .front.double img:first-child {
-  top: 0;
-  left: 0;
-}
-.card .front.double img:last-child {
-  bottom: 0;
-  right: 0;
+  display: inline-block;
 }
 
 /* VERSO : caché par défaut */
@@ -105,16 +95,12 @@ body {
   margin-bottom: 1em;
 }
 
-/* Boutons de navigation positionnés sur le front */
+/* Boutons de navigation sous l'image */
 .front .nav-buttons {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: 8px;
+  padding: 8px 0;
   text-align: center;
-  width: 100%;
-  background: rgba(255,255,255,0.8);
-  padding: 4px 0;
+  background: #f0f0f0;
 }
 .front .nav-buttons button {
   margin: 0 8px;
