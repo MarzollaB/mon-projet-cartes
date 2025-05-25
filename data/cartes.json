@@ -33,5 +33,287 @@
         "Analyse de sol indispensable avant toute correction calcique"
       ]
     }
+  },
+  {
+    "id": 2,
+    "titre": "Carence en azote (froment d’hiver)",
+    "images": [
+      "carence_azote.jpg",
+      "carence_n_2.jpg"
+    ],
+    "verso": {
+      "symptomes_visibles": [
+        "Jaunissement (+/- pâle) des vieilles feuilles et/ou pointe des feuilles",
+        "Répartition uniforme sur le feuillage ou débutant par la pointe",
+        "Apparition en bande dans le champ (zones homogènes)",
+        "Pas d’autres symptômes secondaires nets visibles"
+      ],
+      "localisation_dans_le_champ": "En bande homogène",
+      "feuilles_atteintes": "Vieilles feuilles ou pointe des feuilles",
+      "repartition_sur_la_feuille": "Uniforme ou débutant à la pointe",
+      "symptomes_secondaires": "Aucun",
+      "diagnostic": "Carence en azote (ou surfertilisation en N – doublage)",
+      "plan_de_lutte": [
+        "Apport azoté fractionné en fonction du stade de la culture",
+        "Utilisation d’un plan Azoté + réglage précis du pulvérisateur",
+        "Vérification du pH et de la structure du sol pour assurer l’assimilation"
+      ],
+      "leviers_agronomiques": [
+        "Rotation avec légumineuses",
+        "Apport de matières organiques",
+        "Travail du sol pour favoriser la minéralisation",
+        "Semis à densité maîtrisée pour limiter la compétition"
+      ],
+      "notes_complementaires": [
+        "Ne pas confondre avec une surfertilisation mal répartie (tâches irrégulières)",
+        "Cas fréquent en fin d’hiver ou au redémarrage de végétation sans réserves"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "titre": "Cicadelle (vecteur de viroses)",
+    "images": [
+      "cicadelle_FH.jpg"
+    ],
+    "verso": {
+      "symptomes_visibles": [
+        "Présence de petits insectes verts/beiges mobiles sur les feuilles",
+        "Jaunissement diffus des jeunes feuilles",
+        "Symptômes de viroses secondaires (nanisme, décoloration, torsion)",
+        "Plantes en retard de développement en foyers"
+      ],
+      "localisation_dans_le_champ": "Foyers visibles à la levée ou en début de croissance",
+      "feuilles_atteintes": "Jeunes feuilles (pointes)",
+      "repartition_sur_la_feuille": "Décoloration diffuse",
+      "symptomes_secondaires": "Viroses secondaires (jaunisse, nanisme)",
+      "diagnostic": "Cicadelle (vecteur)",
+      "plan_de_lutte": [
+        "Surveillance régulière (pièges jaunes, observations directes)",
+        "Traitement insecticide en cas de dépassement du seuil critique",
+        "Choix de date de semis limitant la présence des adultes (éviter les semis précoces)"
+      ],
+      "leviers_agronomiques": [
+        "Destruction des repousses et graminées hôtes",
+        "Favoriser les auxiliaires (araignées, carabes)",
+        "Amélioration de la biodiversité dans l’environnement immédiat de la culture"
+      ],
+      "notes_complementaires": [
+        "Très mobile, la cicadelle pique la feuille pour se nourrir et transmettre les virus",
+        "Confusion possible avec le puceron à l’œil nu",
+        "Souvent plus active en automne doux et sec",
+        "Lutte indirecte contre la cicadelle = lutte contre les viroses transmises"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "titre": "Jaunisse nanisante du blé (froment d’hiver)",
+    "images": [
+      "JNO.jpg"
+    ],
+    "verso": {
+      "symptomes_visibles": [
+        "Jaunissement pointe des jeunes feuilles",
+        "Répartition en partant de la pointe, pouvant s’étendre à la feuille entière",
+        "Nanisme des plantes (tiges chétives, croissance réduite)"
+      ],
+      "localisation_dans_le_champ": "En foyer",
+      "feuilles_atteintes": "Jeunes feuilles",
+      "repartition_sur_la_feuille": "Depuis la pointe, s’étendant sur toute la feuille",
+      "symptomes_secondaires": "Nanisme",
+      "diagnostic": "Jaunisse nanisante du blé (Virus BYDV)",
+      "plan_de_lutte": [
+        "Semis tardifs pour réduire l’infestation initiale",
+        "Choix de variétés tolérantes",
+        "Traitement insecticide ciblé contre les pucerons/cicadelles épidémiateurs",
+        "Rotation des cultures pour briser le cycle viral"
+      ],
+      "leviers_agronomiques": [
+        "Favoriser la faune auxiliaire (insectes prédateurs de pucerons)",
+        "Implantation de cultures pièges (avoine sauvage)",
+        "Déchaumage et travail superficiel pour limiter la survie des vecteurs"
+      ],
+      "notes_complementaires": [
+        "Transmis principalement par pucerons et cicadelles au printemps",
+        "Ne pas confondre avec mosaïque ni carence nutritionnelle",
+        "Surveiller le seuil d’attaque via piégeage et diagnostic rapide en parcelle"
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "titre": "Mouche des semis",
+    "images": [
+      "MDS.png"
+    ],
+    "verso": {
+      "symptomes_visibles": [
+        "Plantules manquantes ou détruites localement",
+        "Tiges creusées, brunies ou ramollies",
+        "Apparition de dégâts en foyers",
+        "Jaunissement des plantules, manques à la levée"
+      ],
+      "localisation_dans_le_champ": "En foyer",
+      "feuilles_atteintes": "Jeunes feuilles",
+      "repartition_sur_la_feuille": "Uniforme",
+      "symptomes_secondaires": "Fonte de semis",
+      "diagnostic": "Mouche des semis",
+      "plan_de_lutte": [
+        "Semis à bonne profondeur et en bonnes conditions (éviter l’air excessif dans le sol)",
+        "Éviter les semis trop précoces en conditions humides",
+        "Utilisation raisonnée de produits insecticides si nécessaire"
+      ],
+      "leviers_agronomiques": [
+        "Rotation culturale allongée",
+        "Destruction des résidus de culture précédents",
+        "Choix de parcelles peu infestées historiquement"
+      ],
+      "notes_complementaires": [
+        "Favorisée par un sol humide et riche en matière organique",
+        "Les dégâts peuvent être confondus avec des problèmes de levée liés aux conditions climatiques"
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "titre": "Septoriose (froment d’hiver)",
+    "images": [
+      "septoriose.jpg"
+    ],
+    "verso": {
+      "symptomes_visibles": [
+        "Taches allongées, brunes à brunes claires, souvent bordées de jaune",
+        "Présence de petits points noirs (pycnides) dans les lésions",
+        "Commence sur les vieilles feuilles, puis remonte vers le haut",
+        "Taches irrégulières coalescentes, parfois de forme ovale ou angulaire"
+      ],
+      "localisation_dans_le_champ": "Foyer",
+      "feuilles_atteintes": "Le plus souvent part de la base pour remonter",
+      "repartition_sur_la_feuille": "Taches brunes allongées avec pycnides",
+      "symptomes_secondaires": "Jaunissement autour des lésions",
+      "diagnostic": "Septoriose",
+      "plan_de_lutte": [
+        "Surveillance dès les premiers stades de la culture (à partir de la 3ᵉ feuille étalée)",
+        "Traitement fongicide préventif ou curatif selon les conditions météo",
+        "Intervention dès l’apparition des premières pycnides visibles"
+      ],
+      "leviers_agronomiques": [
+        "Rotation longue avec des cultures non hôtes",
+        "Enfouissement rapide des résidus de culture",
+        "Variétés tolérantes ou résistantes disponibles",
+        "Densité de semis modérée pour limiter la fermeture du couvert"
+      ],
+      "notes_complementaires": [
+        "Champignon favorisé par temps doux et humide (rosée prolongée, pluie)",
+        "Symptômes souvent confondus avec taches physiologiques ou rouilles",
+        "La reconnaissance visuelle repose sur les pycnides (petits points noirs dans les taches)"
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "titre": "Taches physiologiques",
+    "images": [
+      "taphy1.jpg",
+      "taphy2.jpg"
+    ],
+    "verso": {
+      "symptomes_visibles": [
+        "Petites taches brunes à noires, ou décolorées/blanchâtres",
+        "Taches avec halo ou décoloration",
+        "Répartition souvent homogène",
+        "Souvent en bas du feuillage"
+      ],
+      "localisation_dans_le_champ": "Foyer",
+      "feuilles_atteintes": "Jeunes feuilles et étage supérieur",
+      "repartition_sur_la_feuille": "Le plus souvent uniforme sur la feuille mais pas toujours toute la feuille",
+      "symptomes_secondaires": "Aucun symptôme évolutif mais souvent multiples",
+      "diagnostic": "Taches physiologiques",
+      "plan_de_lutte": [
+        "Aucune mesure phytosanitaire nécessaire",
+        "Surveillance et différenciation par rapport aux maladies réelles",
+        "Éviter les traitements injustifiés"
+      ],
+      "leviers_agronomiques": [
+        "Éviter les stress liés à la nutrition ou au sol",
+        "Optimisation de la densité de semis pour limiter l’humidité dans la végétation"
+      ],
+      "notes_complementaires": [
+        "Souvent confondues avec des maladies fongiques (septoriose)",
+        "Ne pas déclencher de traitement si aucune évolution constatée"
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "titre": "Taupin (larve de taupin)",
+    "images": [
+      "taupin1.jpg",
+      "taupin2.jpg"
+    ],
+    "verso": {
+      "symptomes_visibles": [
+        "Plantes manquantes ou flétries à la levée",
+        "Présence de galeries dans la graine ou le collet",
+        "Plantes arrachées facilement",
+        "Apparition en foyers, parfois alignés en bandes selon les passages de semoir"
+      ],
+      "localisation_dans_le_champ": "Foyers alignés ou dispersés dès la levée",
+      "feuilles_atteintes": "Plantes entières (attaque au collet ou racine)",
+      "repartition_sur_la_feuille": "Trou de forage à la base ou dans la graine",
+      "symptomes_secondaires": "Non-levée ou dessèchement rapide",
+      "diagnostic": "Taupin (larve de taupin)",
+      "plan_de_lutte": [
+        "Piégeage avant semis pour identifier la présence de larves (pièges-appâts)",
+        "Traitement de semences insecticide si nécessaire",
+        "Travail du sol superficiel pour déstabiliser les larves"
+      ],
+      "leviers_agronomiques": [
+        "Rotation avec des cultures non sensibles (ex : légumineuses)",
+        "Implantation rapide en conditions optimales pour favoriser une levée rapide",
+        "Éviter les retournements de prairie mal maîtrisés (forte présence en sol herbacé)"
+      ],
+      "notes_complementaires": [
+        "Souvent confondu avec d’autres ravageurs du sol (mouche des semis, courtilière)",
+        "Difficulté de détection sans piégeage préalable",
+        "Préférence pour les sols humides, riches en matière organique"
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "titre": "Virose (froment d’hiver)",
+    "images": [
+      "virose.jpg"
+    ],
+    "verso": {
+      "symptomes_visibles": [
+        "Décoloration progressive en jaune pâle ou vert clair, faisant ressortir les nervures",
+        "Feuilles plus courtes, étroites, torsadées ou déformées",
+        "Apparition de symptômes en foyers",
+        "Croissance ralentie, nanisme"
+      ],
+      "localisation_dans_le_champ": "Foyers dispersés",
+      "feuilles_atteintes": "Feuilles jeunes et intermédiaires/pointes",
+      "repartition_sur_la_feuille": "Décoloration en bandes ou zones diffuses",
+      "symptomes_secondaires": "Nanisme, feuilles torsadées",
+      "diagnostic": "Virose (non spécifique)",
+      "plan_de_lutte": [
+        "Lutte contre les insectes vecteurs (pucerons, cicadelles)",
+        "Éviter les semis trop précoces (périodes à risque de transmission)",
+        "Utiliser des variétés résistantes ou tolérantes si disponibles"
+      ],
+      "leviers_agronomiques": [
+        "Rotation des cultures avec non-hôtes",
+        "Destruction des repousses et graminées sauvages",
+        "Réduction de la densité de semis pour limiter la propagation"
+      ],
+      "notes_complementaires": [
+        "Souvent confondu avec carences ou autres viroses (jaunisse nanisante, mosaïque)",
+        "Confirmation par test en laboratoire recommandé",
+        "Surveiller les populations de vecteurs avec des pièges et outils d’aide à la décision"
+      ]
+    }
   }
 ]
