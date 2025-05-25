@@ -87,13 +87,12 @@ function renderCarte() {
     <ul>${data.verso.notes_complementaires.map(n => `<li>${n}</li>`).join('')}</ul>
   `;
 
-  // Assemblage des faces
+  // Assemblage
   card.append(front, back);
   container.appendChild(card);
 
   // Flip recto/verso au clic sur la carte (hors boutons)
   card.addEventListener('click', e => {
-    // si on clique sur un bouton, on n'active pas le flip
     if (e.target.tagName.toLowerCase() === 'button') return;
     card.classList.toggle('flipped');
   });
