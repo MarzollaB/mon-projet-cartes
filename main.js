@@ -21,23 +21,29 @@ function renderCarte() {
   const container = document.getElementById('card-container');
   container.innerHTML = '';
 
-  // Création de la carte
   const card = document.createElement('div');
   card.className = 'card';
 
-  // FRONT : one or more images
   const front = document.createElement('div');
   front.className = 'front ' + (data.images.length > 1 ? 'double' : 'single');
 
-  // Ajout des images
-  data.images.forEach(src => {
+  if (data.images.length > 1) {
+    const wrap = document.createElement('div');
+    wrap.className = 'images-wrapper';
+    data.images.forEach(src => {
+      const img = document.createElement('img');
+      img.src = `images/${src}`;
+      img.alt = data.titre;
+      wrap.appendChild(img);
+    });
+    front.appendChild(wrap);
+  } else {
     const img = document.createElement('img');
-    img.src = `images/${src}`;
+    img.src = `images/${data.images[0]}`;
     img.alt = data.titre;
     front.appendChild(img);
-  });
+  }
 
-  // Boutons sous les images
   const navDiv = document.createElement('div');
   navDiv.className = 'nav-buttons';
   navDiv.innerHTML = `
@@ -47,7 +53,6 @@ function renderCarte() {
   `;
   front.appendChild(navDiv);
 
-  // VERSO : contenu structuré
   const back = document.createElement('div');
   back.className = 'back';
   back.innerHTML = `
@@ -72,17 +77,14 @@ function renderCarte() {
     <ul>${data.verso.notes_complementaires.map(n => `<li>${n}</li>`).join('')}</ul>
   `;
 
-  // Assemblage
   card.append(front, back);
   container.appendChild(card);
 
-  // Flip recto/verso au clic (hors boutons)
   card.addEventListener('click', e => {
     if (e.target.tagName.toLowerCase() === 'button') return;
     card.classList.toggle('flipped');
   });
 
-  // Navigation
   navDiv.querySelector('#prevBtn').addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + cartes.length) % cartes.length;
     renderCarte();
