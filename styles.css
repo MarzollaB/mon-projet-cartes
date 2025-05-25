@@ -1,6 +1,5 @@
 /* styles.css */
 
-/* Corps de page */
 body {
   font-family: Arial, sans-serif;
   background: #f5f5f5;
@@ -11,21 +10,14 @@ body {
   align-items: center;
 }
 
-/* Introduction */
 .intro {
   max-width: 800px;
   text-align: center;
   margin: 40px 20px 20px;
 }
-.intro h1 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-}
-.intro p {
-  line-height: 1.5;
-}
+.intro h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+.intro p { line-height: 1.5; }
 
-/* Conteneur de la carte */
 .container {
   width: 100%;
   display: flex;
@@ -33,7 +25,6 @@ body {
   padding-bottom: 40px;
 }
 
-/* Carte */
 .card {
   width: 50vw;
   max-width: 600px;
@@ -44,34 +35,33 @@ body {
   cursor: pointer;
 }
 
-/* FRONT : images + boutons */
+/* FRONT */
 .card .front {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   padding: 0;
+  overflow-x: auto;
 }
 
-/* Mode single : image pleine largeur */
+/* Wrapper for images: 200% width to hold two 100% images side-by-side */
+.card .front.double .images-wrapper {
+  display: flex;
+  width: 200%;
+}
+.card .front.double .images-wrapper img {
+  width: 50%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Single image full width */
 .card .front.single img {
   width: 100%;
   height: auto;
-  display: block;
+  object-fit: contain;
 }
 
-/* Mode double : côte-à-côte, sans wrap */
-.card .front.double {
-  display: flex;
-  flex-wrap: nowrap;       /* empêche le passage à la ligne */
-  overflow-x: auto;        /* scroll horiz. si besoin */
-}
-.card .front.double img {
-  flex: 0 0 50%;           /* largeur fixe à 50% du conteneur front */
-  height: auto;
-  object-fit: contain;     /* affiche l’image en entier */
-}
-
-/* Boutons sous les images */
+/* Buttons under images */
 .front .nav-buttons {
   margin-top: 8px;
   padding: 8px 0;
@@ -87,34 +77,17 @@ body {
   color: white;
   cursor: pointer;
 }
-.front .nav-buttons button:hover {
-  background: #0056b3;
-}
+.front .nav-buttons button:hover { background: #0056b3; }
 
-/* VERSO : caché par défaut */
 .card .back {
   display: none;
   padding: 16px;
   box-sizing: border-box;
 }
 
-/* Flip recto/verso */
-.card.flipped .front {
-  display: none;
-}
-.card.flipped .back {
-  display: block;
-}
+.card.flipped .front { display: none; }
+.card.flipped .back { display: block; }
 
-/* Styles du verso */
-.back h3,
-.back h4 {
-  margin-top: 0;
-}
-.back ul {
-  margin-left: 1em;
-  margin-bottom: 1em;
-}
-.back p {
-  margin-bottom: 1em;
-}
+.back h3, .back h4 { margin-top: 0; }
+.back ul { margin-left: 1em; margin-bottom: 1em; }
+.back p { margin-bottom: 1em; }
