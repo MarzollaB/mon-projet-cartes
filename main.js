@@ -25,25 +25,19 @@ function renderCarte() {
   const card = document.createElement('div');
   card.className = 'card';
 
-  // RECTO : gestion d'une ou deux images
+  // RECTO : une ou deux images
   const front = document.createElement('div');
   front.className = 'front ' + (data.images.length === 2 ? 'double' : 'single');
 
-  if (data.images.length === 1) {
+  // Ajout des images
+  data.images.forEach(src => {
     const img = document.createElement('img');
-    img.src = `images/${data.images[0]}`;
+    img.src = `images/${src}`;
     img.alt = data.titre;
     front.appendChild(img);
-  } else {
-    data.images.forEach(src => {
-      const img = document.createElement('img');
-      img.src = `images/${src}`;
-      img.alt = data.titre;
-      front.appendChild(img);
-    });
-  }
+  });
 
-  // Boutons de navigation sous l'image
+  // Boutons sous les images
   const navDiv = document.createElement('div');
   navDiv.className = 'nav-buttons';
   navDiv.innerHTML = `
