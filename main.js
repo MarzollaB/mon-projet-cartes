@@ -13,31 +13,34 @@ async function loadCartes() {
 
 function renderCarte() {
   const data = cartes[currentIndex];
-  const cardEl = document.getElementById('card');
+  const container = document.getElementById('card-container');
 
-  // Vide et remet la carte à l'état non-flippé
-  cardEl.innerHTML = '';
-  cardEl.classList.remove('flipped');
+  // On remplace tout
+  container.innerHTML = '';
 
-  // Création de la face recto (image)
+  // Création de la carte
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  // Recto : image
   const front = document.createElement('div');
-  front.className = 'face front';
+  front.className = 'front';
   const img = document.createElement('img');
   img.src = `images/${data.images[0]}`;
   img.alt = data.titre;
   front.appendChild(img);
 
-  // Création de la face verso (texte + boutons)
+  // Verso : texte + boutons
   const back = document.createElement('div');
-  back.className = 'face back';
+  back.className = 'back';
   back.innerHTML = `
     <h3>${data.titre}</h3>
     <h4>Symptômes visibles</h4>
-    <ul>${data.verso.symptomes_visibles.map(s => `<li>${s}</li>`).join('')}</ul>
+    <ul>${data.verso.symptomes_visibles.map(s=>`<li>${s}</li>`).join('')}</ul>
     <h4>Diagnostic</h4>
     <p>${data.verso.diagnostic}</p>
     <h4>Plan de lutte</h4>
-    <ul>${data.verso.plan_de_lutte.map(p => `<li>${p}</li>`).join('')}</ul>
+    <ul>${data.verso.plan_de_lutte.map(p=>`<li>${p}</li>`).join('')}</ul>
     <div class="nav-buttons">
       <button id="prevBtn">Précédent</button>
       <button id="nextBtn">Suivant</button>
@@ -46,12 +49,15 @@ function renderCarte() {
   `;
 
   // Assemblage
-  cardEl.append(front, back);
+  card.append(front, back);
+  container.appendChild(card);
 
-  // Ajustement de la hauteur en fonction de la face visible
-  adjustCardHeight(cardEl);
+  // Clic bascule front/back
+  card.addEventListener('click', () => {
+    card.classList.toggle('flipped');
+  });
 
-  // Gestion des boutons (stopPropagation pour éviter le flip)
+  // Hook des boutons (empêche la propagation pour ne pas rebasculer)
   back.querySelector('#prevBtn').addEventListener('click', e => {
     e.stopPropagation();
     currentIndex = (currentIndex - 1 + cartes.length) % cartes.length;
@@ -67,21 +73,4 @@ function renderCarte() {
     currentIndex = Math.floor(Math.random() * cartes.length);
     renderCarte();
   });
-
-  // Flip au clic sur la carte
-  cardEl.addEventListener('click', () => {
-    cardEl.classList.toggle('flipped');
-    adjustCardHeight(cardEl);
-  });
-}
-
-// Ajuste la hauteur du conteneur .card pour englober la face active
-function adjustCardHeight(cardEl) {
-  // Permettre le calcul
-  cardEl.style.height = 'auto';
-  const activeFace = cardEl.classList.contains('flipped')
-    ? cardEl.querySelector('.face.back')
-    : cardEl.querySelector('.face.front');
-  const h = activeFace.getBoundingClientRect().height;
-  cardEl.style.height = `${h}px`;
 }
