@@ -43,6 +43,16 @@ function renderCarte() {
     });
   }
 
+  // Ajout des boutons de navigation sur le front
+  const navDiv = document.createElement('div');
+  navDiv.className = 'nav-buttons';
+  navDiv.innerHTML = `
+    <button id="prevBtn">Précédent</button>
+    <button id="nextBtn">Suivant</button>
+    <button id="randomBtn">Aléatoire</button>
+  `;
+  front.appendChild(navDiv);
+
   // VERSO : tous les champs JSON
   const back = document.createElement('div');
   back.className = 'back';
@@ -75,36 +85,29 @@ function renderCarte() {
 
     <h4>Notes complémentaires</h4>
     <ul>${data.verso.notes_complementaires.map(n => `<li>${n}</li>`).join('')}</ul>
-
-    <div class="nav-buttons">
-      <button id="prevBtn">Précédent</button>
-      <button id="nextBtn">Suivant</button>
-      <button id="randomBtn">Aléatoire</button>
-    </div>
   `;
 
   // Assemblage des faces
   card.append(front, back);
   container.appendChild(card);
 
-  // Flip recto/verso au clic
-  card.addEventListener('click', () => {
+  // Flip recto/verso au clic sur la carte (hors boutons)
+  card.addEventListener('click', e => {
+    // si on clique sur un bouton, on n'active pas le flip
+    if (e.target.tagName.toLowerCase() === 'button') return;
     card.classList.toggle('flipped');
   });
 
-  // Navigation : empêcher le flip lors du clic sur un bouton
-  back.querySelector('#prevBtn').addEventListener('click', e => {
-    e.stopPropagation();
+  // Navigation
+  navDiv.querySelector('#prevBtn').addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + cartes.length) % cartes.length;
     renderCarte();
   });
-  back.querySelector('#nextBtn').addEventListener('click', e => {
-    e.stopPropagation();
+  navDiv.querySelector('#nextBtn').addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % cartes.length;
     renderCarte();
   });
-  back.querySelector('#randomBtn').addEventListener('click', e => {
-    e.stopPropagation();
+  navDiv.querySelector('#randomBtn').addEventListener('click', () => {
     currentIndex = Math.floor(Math.random() * cartes.length);
     renderCarte();
   });
