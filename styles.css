@@ -36,11 +36,12 @@ body {
   width: 50vw;                   /* 50% de la largeur de la fenêtre */
   max-width: 600px;              /* jamais plus de 600px */
   margin: 0 auto;                /* centrée horizontalement */
-  transform-style: preserve-3d;  /* pour conserver l’effet 3D */
-  transition: transform 0.6s, height 0.3s; /* flip + ajustement de hauteur */
+  transform-style: preserve-3d;  /* pour effet 3D */
+  transition: transform 0.6s, height 0.3s; /* flip + hauteur */
   cursor: pointer;
-  position: relative;            /* nécessaire pour le positionnement des faces */
-  height: auto;                  /* laissé en auto, JS le calibrera */
+  position: relative;            /* contexte des faces */
+  overflow: hidden;              /* masque le débordement */
+  height: auto;                  /* géré dynamiquement */
 }
 
 /* Faces : superposées, hauteur automatique gérée par JS */
@@ -55,11 +56,13 @@ body {
   padding: 16px;
   box-sizing: border-box;
   transform-origin: center;
+  z-index: 1;
 }
 
 /* Face avant (recto) */
 .card__face--front {
   transform: rotateY(0);
+  z-index: 2;
 }
 
 /* Face arrière (verso) */
@@ -70,6 +73,14 @@ body {
 /* État “retourné” */
 .card.flipped {
   transform: rotateY(180deg);
+}
+
+/* Ajustement des z-index quand flipped */
+.card.flipped .card__face--back {
+  z-index: 2;
+}
+.card.flipped .card__face--front {
+  z-index: 1;
 }
 
 /* Images responsives en face avant */
