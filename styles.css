@@ -42,7 +42,7 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   overflow: hidden;
   cursor: pointer;
-  position: relative; /* pour positionner les images absolues */
+  position: relative; /* pour positionner les images et les boutons */
 }
 
 /* FRONT : une ou deux images */
@@ -108,12 +108,19 @@ body {
   margin-bottom: 1em;
 }
 
-/* Boutons de navigation */
-.nav-buttons {
+/* Boutons de navigation positionnés sur le front */
+.front .nav-buttons {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
-  margin-top: 16px;
+  width: 100%;
+  /* On place un léger fond pour plus de lisibilité */
+  background: rgba(255,255,255,0.8);
+  padding: 4px 0;
 }
-.nav-buttons button {
+.front .nav-buttons button {
   margin: 0 8px;
   padding: 8px 12px;
   border: none;
@@ -122,6 +129,6 @@ body {
   color: white;
   cursor: pointer;
 }
-.nav-buttons button:hover {
+.front .nav-buttons button:hover {
   background: #0056b3;
 }
