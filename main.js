@@ -33,7 +33,7 @@ function renderCarte() {
   img.alt = data.titre;
   front.appendChild(img);
 
-  // VERSO : tous les champs
+  // VERSO : tous les champs JSON
   const back = document.createElement('div');
   back.className = 'back';
   back.innerHTML = `
@@ -77,12 +77,12 @@ function renderCarte() {
   card.append(front, back);
   container.appendChild(card);
 
-  // Basculer front/back au clic
+  // Flip front/back au clic sur la carte
   card.addEventListener('click', () => {
     card.classList.toggle('flipped');
   });
 
-  // Boutons de navigation (empêche le flip)
+  // Gestion des boutons (empêche la propagation du clic pour ne pas flipper)
   back.querySelector('#prevBtn').addEventListener('click', e => {
     e.stopPropagation();
     currentIndex = (currentIndex - 1 + cartes.length) % cartes.length;
