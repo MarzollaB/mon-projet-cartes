@@ -6,35 +6,30 @@ let cartes = [];
 let currentIndex = 0;
 
 async function loadCartes() {
-  const response = await fetch('data/cartes.json');
-  cartes = await response.json();
-  showCarte(0);
+  const res = await fetch('data/cartes.json');
+  cartes = await res.json();
+  renderCarte();
 }
 
-function showCarte(i) {
-  const data = cartes[i];
-  const container = document.getElementById('card-container');
-  container.innerHTML = '';
+function renderCarte() {
+  const data = cartes[currentIndex];
+  const cardEl = document.getElementById('card');
 
-  // Création de la carte
-  const card = document.createElement('div');
-  card.className = 'card';
-  card.addEventListener('click', () => {
-    card.classList.toggle('flipped');
-    adjustCardHeight(card);
-  });
+  // Vide et remet la carte à l'état non-flippé
+  cardEl.innerHTML = '';
+  cardEl.classList.remove('flipped');
 
-  // RECTO : image
+  // Création de la face recto (image)
   const front = document.createElement('div');
-  front.className = 'card__face card__face--front';
+  front.className = 'face front';
   const img = document.createElement('img');
   img.src = `images/${data.images[0]}`;
   img.alt = data.titre;
   front.appendChild(img);
 
-  // VERSO : texte structuré + boutons
+  // Création de la face verso (texte + boutons)
   const back = document.createElement('div');
-  back.className = 'card__face card__face--back';
+  back.className = 'face back';
   back.innerHTML = `
     <h3>${data.titre}</h3>
     <h4>Symptômes visibles</h4>
@@ -50,41 +45,43 @@ function showCarte(i) {
     </div>
   `;
 
-  // Assemblage et insertion
-  card.appendChild(front);
-  card.appendChild(back);
-  container.appendChild(card);
+  // Assemblage
+  cardEl.append(front, back);
 
-  // On attache les handlers sur les boutons à l'intérieur du verso
+  // Ajustement de la hauteur en fonction de la face visible
+  adjustCardHeight(cardEl);
+
+  // Gestion des boutons (stopPropagation pour éviter le flip)
   back.querySelector('#prevBtn').addEventListener('click', e => {
     e.stopPropagation();
     currentIndex = (currentIndex - 1 + cartes.length) % cartes.length;
-    showCarte(currentIndex);
+    renderCarte();
   });
   back.querySelector('#nextBtn').addEventListener('click', e => {
     e.stopPropagation();
     currentIndex = (currentIndex + 1) % cartes.length;
-    showCarte(currentIndex);
+    renderCarte();
   });
   back.querySelector('#randomBtn').addEventListener('click', e => {
     e.stopPropagation();
     currentIndex = Math.floor(Math.random() * cartes.length);
-    showCarte(currentIndex);
+    renderCarte();
   });
 
-  // Ajuste la hauteur pour la face visible
-  adjustCardHeight(card);
+  // Flip au clic sur la carte
+  cardEl.addEventListener('click', () => {
+    cardEl.classList.toggle('flipped');
+    adjustCardHeight(cardEl);
+  });
 }
 
-// Ajuste la hauteur du conteneur .card en fonction de la face visible
-function adjustCardHeight(card) {
-  const isFlipped = card.classList.contains('flipped');
-  const visibleFace = isFlipped
-    ? card.querySelector('.card__face--back')
-    : card.querySelector('.card__face--front');
-
-  // Mesure la hauteur nécessaire
-  card.style.height = 'auto';
-  const neededHeight = visibleFace.getBoundingClientRect().height;
-  card.style.height = `${neededHeight}px`;
+// Ajuste la hauteur du conteneur .card pour englober la face active
+function adjustCardHeight(cardEl) {
+  // Permettre le calcul
+  cardEl.style.height = 'auto';
+  const activeFace = cardEl.classList.contains('flipped')
+    ? cardEl.querySelector('.face.back')
+    : cardEl.querySelector('.face.front');
+  const h = activeFace.getBoundingClientRect().height;
+  cardEl.style.height = `${h}px`;
 }
