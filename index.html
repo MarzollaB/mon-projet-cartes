@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Outil Cartes Diagnostic - Jaunissement froment d'hiver</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Outil Cartes Diagnostic</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
   <div class="intro">
-    <h1>Outil de diagnostic du jaunissement des feuilles</h1>
+    <h1>Diagnostic du jaunissement en froment d'hiver</h1>
     <p>
-      Cet outil interactif aide à diagnostiquer les étiologies possibles du jaunissement des feuilles
-      dans la culture du froment d'hiver. Cliquez sur l'image pour faire tourner la carte et consulter
-      les informations détaillées, structurées du plus global au plus spécifique.
+      Cliquez sur l’image pour retourner la carte : le recto ne contient que la photo,
+      le verso affiche le texte structuré et les boutons de navigation.
     </p>
   </div>
 
   <div class="container">
-    <div id="card-container"></div>
+    <div class="scene">
+      <div id="card" class="card">
+        <div class="face front"></div>
+        <div class="face back"></div>
+      </div>
+    </div>
   </div>
 
   <script src="main.js"></script>
