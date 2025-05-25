@@ -15,9 +15,7 @@
       "localisation_dans_le_champ": "Zones compactes ou peu amendées – en foyer",
       "feuilles_atteintes": "Toutes feuilles (ralentissement global)",
       "repartition_sur_la_feuille": "Feuilles pâles à violacées selon la carence induite",
-      "symptomes_secondaires": [
-        "Croissance ralentie, plantes chétives"
-      ],
+      "symptomes_secondaires": "Croissance ralentie, plantes chétives",
       "diagnostic": "Acidité du sol",
       "plan_de_lutte": [
         "Amendement calcaire raisonné après analyse de sol",
