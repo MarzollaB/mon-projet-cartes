@@ -33,7 +33,7 @@ body {
   padding-bottom: 40px;
 }
 
-/* Carte : espace fixe pour recto/verso */
+/* Carte */
 .card {
   width: 50vw;
   max-width: 600px;
@@ -44,30 +44,31 @@ body {
   cursor: pointer;
 }
 
-/* FRONT */
+/* FRONT : images + boutons */
 .card .front {
-  /* on aligne les enfants en colonne (images + boutons) */
   display: flex;
   flex-direction: column;
   align-items: stretch;
   padding: 0;
 }
 
-/* Single image full width */
+/* Mode single : image pleine largeur */
 .card .front.single img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* Double images side by side */
+/* Mode double : côte-à-côte, sans wrap */
 .card .front.double {
   display: flex;
+  flex-wrap: nowrap;       /* empêche le passage à la ligne */
+  overflow-x: auto;        /* scroll horiz. si besoin */
 }
 .card .front.double img {
-  width: 50%;
+  flex: 0 0 50%;           /* largeur fixe à 50% du conteneur front */
   height: auto;
-  object-fit: contain; /* conserve l’intégralité de l’image */
+  object-fit: contain;     /* affiche l’image en entier */
 }
 
 /* Boutons sous les images */
@@ -90,7 +91,7 @@ body {
   background: #0056b3;
 }
 
-/* VERSO (caché par défaut) */
+/* VERSO : caché par défaut */
 .card .back {
   display: none;
   padding: 16px;
