@@ -42,13 +42,13 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   overflow: hidden;
   cursor: pointer;
-  position: relative; /* pour positionner les images et les boutons */
+  position: relative;
 }
 
 /* FRONT : une ou deux images */
 .card .front {
   position: relative;
-  padding: 0; /* on gère l’espace via les images */
+  padding: 0;
 }
 
 /* Mode « single » : image centrée */
@@ -58,26 +58,23 @@ body {
   display: block;
 }
 
-/* Mode « double » : deux images superposées */
+/* Mode « double » : deux images en plein format dans les coins */
 .card .front.double {
-  height: 0;
-  padding-top: 66.66%; /* ratio 3:2 pour respecter l’aspect */
+  height: auto;
 }
 .card .front.double img {
   position: absolute;
-  width: 60%;
+  width: 50%;
   height: auto;
   object-fit: cover;
 }
 .card .front.double img:first-child {
   top: 0;
   left: 0;
-  clip-path: inset(0 40% 0 0); /* fondu côté droit */
 }
 .card .front.double img:last-child {
   bottom: 0;
   right: 0;
-  clip-path: inset(0 0 0 40%); /* fondu côté gauche */
 }
 
 /* VERSO : caché par défaut */
@@ -116,7 +113,6 @@ body {
   transform: translateX(-50%);
   text-align: center;
   width: 100%;
-  /* On place un léger fond pour plus de lisibilité */
   background: rgba(255,255,255,0.8);
   padding: 4px 0;
 }
