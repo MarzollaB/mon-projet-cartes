@@ -49,6 +49,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 0;
+  position: relative; /* for absolute nav-buttons */
 }
 
 /* Wrapper pour images : scroll horizontal */
@@ -68,14 +69,19 @@ body {
   height: auto;
 }
 
-/* Boutons sous les images */
+/* Boutons superposés au-dessus des images */
 .front .nav-buttons {
-  margin-top: 8px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(240,240,240,0.9);
   padding: 8px 0;
-  text-align: center;
-  background: #f0f0f0;
-  position: relative;
   z-index: 10;
+  width: 90%;
+  text-align: center;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 .front .nav-buttons button {
   margin: 0 8px;
