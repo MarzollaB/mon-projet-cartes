@@ -98,6 +98,7 @@ body {
   display: none;
   padding: 16px;
   box-sizing: border-box;
+  text-align: center; /* centrer tout le verso */
 }
 
 /* Flip recto/verso */
@@ -119,4 +120,12 @@ body {
 }
 .back p {
   margin-bottom: 1em;
+}
+
+/* Spécifique Diagnostic */
+.back h4.diagnostic {
+  font-size: 1.4em;
+}
+.back p.diagnostic-text {
+  font-size: 1.2em;
 }
