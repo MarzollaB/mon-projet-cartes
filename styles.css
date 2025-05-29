@@ -51,26 +51,21 @@ body {
   padding: 0;
 }
 
-/* Wrapper pour deux images : scroll horizontal */
-.front.double .images-wrapper {
+/* Wrapper pour images : scroll horizontal */
+.front .images-wrapper {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+  white-space: nowrap;
 }
 
-/* Images côte-à-côte : taille native */
-.front.double .images-wrapper img {
+/* Images côte-à-côte ou seule : taille native */
+.front .images-wrapper img,
+.front.single img {
   flex: 0 0 auto;
   width: auto;
   max-width: none;
   height: auto;
-}
-
-/* Single image full width */
-.card .front.single img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
 }
 
 /* Boutons sous les images */
@@ -79,6 +74,8 @@ body {
   padding: 8px 0;
   text-align: center;
   background: #f0f0f0;
+  position: relative;
+  z-index: 10;
 }
 .front .nav-buttons button {
   margin: 0 8px;
