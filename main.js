@@ -27,23 +27,7 @@ function renderCarte() {
   const front = document.createElement('div');
   front.className = 'front ' + (data.images.length > 1 ? 'double' : 'single');
 
-  if (data.images.length > 1) {
-    const wrap = document.createElement('div');
-    wrap.className = 'images-wrapper';
-    data.images.forEach(src => {
-      const img = document.createElement('img');
-      img.src = `images/${src}`;
-      img.alt = data.titre;
-      wrap.appendChild(img);
-    });
-    front.appendChild(wrap);
-  } else {
-    const img = document.createElement('img');
-    img.src = `images/${data.images[0]}`;
-    img.alt = data.titre;
-    front.appendChild(img);
-  }
-
+  // 1. On ajoute d'abord les boutons
   const navDiv = document.createElement('div');
   navDiv.className = 'nav-buttons';
   navDiv.innerHTML = `
@@ -53,6 +37,18 @@ function renderCarte() {
   `;
   front.appendChild(navDiv);
 
+  // 2. Puis on ajoute la galerie d'images (scroll horizontal)
+  const wrap = document.createElement('div');
+  wrap.className = 'images-wrapper';
+  data.images.forEach(src => {
+    const img = document.createElement('img');
+    img.src = `images/${src}`;
+    img.alt = data.titre;
+    wrap.appendChild(img);
+  });
+  front.appendChild(wrap);
+
+  // Back side
   const back = document.createElement('div');
   back.className = 'back';
   back.innerHTML = `
@@ -86,11 +82,13 @@ function renderCarte() {
 
   back.style.textAlign = 'center';
 
+  // Flip event
   card.addEventListener('click', e => {
     if (e.target.tagName.toLowerCase() === 'button') return;
     card.classList.toggle('flipped');
   });
 
+  // Navigation logic
   navDiv.querySelector('#prevBtn').addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + cartes.length) % cartes.length;
     renderCarte();
