@@ -56,7 +56,7 @@ function renderCarte() {
   const back = document.createElement('div');
   back.className = 'back';
   back.innerHTML = `
-    <h3>${data.titre}</h3>
+    <h3>Caractéristiques à observer</h3>
     <h4>Symptômes visibles</h4>
     <ul>${data.verso.symptomes_visibles.map(s => `<li>${s}</li>`).join('')}</ul>
     <h4>Localisation dans le champ</h4>
@@ -67,8 +67,8 @@ function renderCarte() {
     <p>${data.verso.repartition_sur_la_feuille}</p>
     <h4>Symptômes secondaires</h4>
     <p>${data.verso.symptomes_secondaires}</p>
-    <h4>Diagnostic</h4>
-    <p>${data.verso.diagnostic}</p>
+    <h4 style="font-size:1.4em;">Diagnostic</h4>
+    <p style="font-size:1.2em;">${data.verso.diagnostic}</p>
     <h4>Plan de lutte</h4>
     <ul>${data.verso.plan_de_lutte.map(p => `<li>${p}</li>`).join('')}</ul>
     <h4>Leviers agronomiques</h4>
@@ -79,6 +79,9 @@ function renderCarte() {
 
   card.append(front, back);
   container.appendChild(card);
+
+  // Center verso content
+  back.style.textAlign = 'center';
 
   card.addEventListener('click', e => {
     if (e.target.tagName.toLowerCase() === 'button') return;
