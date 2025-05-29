@@ -60,7 +60,7 @@ body {
 
 /* Images côte-à-côte : taille native */
 .front.double .images-wrapper img {
-  flex: 0 0 auto;     /* ne pas redimensionner automatiquement */
+  flex: 0 0 auto;
   width: auto;
   max-width: none;
   height: auto;
@@ -122,9 +122,19 @@ body {
   margin-bottom: 1em;
 }
 
+/* Diagnostic box */
+.diagnostic-box {
+  border: 1px solid #333;
+  padding: 12px;
+  margin: 16px 0;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
 /* Spécifique Diagnostic */
 .back h4.diagnostic {
   font-size: 1.4em;
+  margin-bottom: 8px;
 }
 .back p.diagnostic-text {
   font-size: 1.2em;
