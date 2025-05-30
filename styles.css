@@ -72,26 +72,23 @@ body {
   background: #0056b3;
 }
 
-/* Galerie d’images côte-à-côte avec scroll horizontal à l'intérieur d’un cadre */
+/* Galerie d’images côte-à-côte avec scroll interne */
 .front .images-wrapper {
   display: flex;
   overflow-x: auto;
-  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   white-space: nowrap;
   width: 100%;
-  max-height: 400px; /* cadre fixe, ajuste à 200% si besoin */
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  box-sizing: border-box;
 }
 .front .images-wrapper img {
   flex: 0 0 auto;
   display: inline-block;
+  /* Remove any forced resizing */
   width: auto;
   height: auto;
   max-width: none;
-  max-height: 100%; /* limiter à la hauteur du cadre */
+  max-height: none;
+  object-fit: none;
   margin: 0 4px;
 }
 
