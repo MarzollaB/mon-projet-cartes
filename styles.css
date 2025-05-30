@@ -51,26 +51,9 @@ body {
   padding: 0;
 }
 
-/* Wrapper pour images : scroll horizontal */
-.front .images-wrapper {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-/* Images côte-à-côte ou seule : taille native */
-.front .images-wrapper img,
-.front.single img {
-  flex: 0 0 auto;
-  width: auto;
-  max-width: none;
-  height: auto;
-}
-
-/* Boutons positionnés au-dessus de l’image */
+/* Barre de boutons (au-dessus des images) */
 .front .nav-buttons {
-  margin-bottom: 8px;
+  margin: 0 0 8px; /* espace sous les boutons */
   padding: 8px 0;
   text-align: center;
   background: #f0f0f0;
@@ -88,12 +71,28 @@ body {
   background: #0056b3;
 }
 
+/* Galerie d’images côte-à-côte avec scroll horizontal */
+.front .images-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* inertie sur mobile */
+  padding: 0; 
+}
+.front .images-wrapper img {
+  flex: 0 0 auto; /* pas de rétrécissement ni d’agrandissement */
+  display: block;
+  height: auto;    /* conserve la hauteur naturelle */
+  max-width: none; /* ne pas limiter la taille */
+  margin-right: 4px; /* léger espace entre images */
+}
+
 /* VERSO : caché par défaut */
 .card .back {
   display: none;
   padding: 16px;
   box-sizing: border-box;
-  text-align: center;
+  text-align: center; /* centrer tout le verso */
 }
 
 /* Flip recto/verso */
