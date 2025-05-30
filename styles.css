@@ -41,7 +41,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   cursor: pointer;
-  overflow: hidden;
+  overflow: visible; /* allow full verso display */
 }
 
 /* FRONT (images + boutons) */
@@ -51,7 +51,7 @@ body {
   padding: 0;
 }
 
-/* Barre de boutons */
+/* Barre de navigation */
 .front .nav-buttons {
   width: 100%;
   margin-bottom: 8px;
@@ -119,26 +119,13 @@ body {
 }
 
 /* Flip recto/verso */
-.card.flipped .front {
-  display: none;
-}
-.card.flipped .back {
-  display: block;
-}
+.card.flipped .front { display: none; }
+.card.flipped .back { display: block; }
 
 /* Styles du verso */
-.back h3,
-.back h4 {
-  margin-top: 0;
-}
-.back ul {
-  list-style: none;
-  margin: 0 0 1em 0;
-  padding: 0;
-}
-.back p {
-  margin-bottom: 1em;
-}
+.back h3, .back h4 { margin-top: 0; }
+.back ul { list-style: none; margin: 0 0 1em; padding: 0; }
+.back p { margin-bottom: 1em; }
 
 /* Diagnostic box */
 .diagnostic-box {
@@ -150,10 +137,5 @@ body {
 }
 
 /* Spécifique Diagnostic */
-.back h4.diagnostic {
-  font-size: 1.4em;
-  margin-bottom: 8px;
-}
-.back p.diagnostic-text {
-  font-size: 1.2em;
-}
+.back h4.diagnostic { font-size: 1.4em; margin-bottom: 8px; }
+.back p.diagnostic-text { font-size: 1.2em; }
