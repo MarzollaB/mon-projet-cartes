@@ -1,5 +1,17 @@
 /* styles.css */
 
+/* ----------------------------- */
+/* Override images to native size */
+/* ----------------------------- */
+.front .images-wrapper img {
+  width: auto !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: none !important;
+  transform: none !important;
+}
+
 /* Corps de page */
 body {
   font-family: Arial, sans-serif;
@@ -87,11 +99,8 @@ body {
 .front .images-wrapper img {
   flex: 0 0 auto;
   display: block;
-  width: auto;
-  height: auto;
-  max-width: none;
-  max-height: 100%;
   margin-right: 4px;
+  /* Les dimensions sont gérées par l’override ci-dessus */
 }
 
 /* VERSO : caché par défaut */
