@@ -27,7 +27,7 @@ function renderCarte() {
   const front = document.createElement('div');
   front.className = 'front ' + (data.images.length > 1 ? 'double' : 'single');
 
-  // Barre de navigation (sans Zoom)
+  // 1. Barre de navigation
   const navDiv = document.createElement('div');
   navDiv.className = 'nav-buttons';
   navDiv.innerHTML = `
@@ -37,7 +37,7 @@ function renderCarte() {
   `;
   front.appendChild(navDiv);
 
-  // Galerie d'images côte-à-côte
+  // 2. Galerie d'images côte-à-côte
   const wrap = document.createElement('div');
   wrap.className = 'images-wrapper';
   data.images.forEach(src => {
@@ -48,7 +48,7 @@ function renderCarte() {
   });
   front.appendChild(wrap);
 
-  // Back side
+  // 3. Verso
   const back = document.createElement('div');
   back.className = 'back';
   back.innerHTML = `
