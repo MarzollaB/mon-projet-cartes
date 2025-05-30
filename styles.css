@@ -34,6 +34,7 @@ body {
 }
 
 /* Carte */
+/* Carte */
 .card {
   width: 50vw;
   max-width: 600px;
@@ -41,7 +42,13 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   cursor: pointer;
-  overflow: hidden;
+  /* Autoriser le verso à ne pas être découpé */
+  overflow: visible;
+}
+
+/* Forcer l'affichage du verso lorsqu'on flip */
+.card.flipped {
+  overflow: visible;
 }
 
 /* FRONT (images + boutons) */
