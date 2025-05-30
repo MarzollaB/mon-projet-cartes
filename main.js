@@ -27,7 +27,7 @@ function renderCarte() {
   const front = document.createElement('div');
   front.className = 'front ' + (data.images.length > 1 ? 'double' : 'single');
 
-  // 1. Barre de navigation
+  // Boutons de nav
   const navDiv = document.createElement('div');
   navDiv.className = 'nav-buttons';
   navDiv.innerHTML = `
@@ -37,7 +37,7 @@ function renderCarte() {
   `;
   front.appendChild(navDiv);
 
-  // 2. Galerie d'images côte-à-côte
+  // Galerie images
   const wrap = document.createElement('div');
   wrap.className = 'images-wrapper';
   data.images.forEach(src => {
@@ -48,7 +48,7 @@ function renderCarte() {
   });
   front.appendChild(wrap);
 
-  // 3. Verso
+  // Verso
   const back = document.createElement('div');
   back.className = 'back';
   back.innerHTML = `
@@ -80,15 +80,11 @@ function renderCarte() {
   card.append(front, back);
   container.appendChild(card);
 
-  back.style.textAlign = 'center';
-
-  // Flip recto/verso
   card.addEventListener('click', e => {
     if (e.target.tagName.toLowerCase() === 'button') return;
     card.classList.toggle('flipped');
   });
 
-  // Navigation logic
   navDiv.querySelector('#prevBtn').addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + cartes.length) % cartes.length;
     renderCarte();
