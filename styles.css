@@ -72,14 +72,14 @@ body {
   background: #0056b3;
 }
 
-/* Galerie double : scroll horizontal */
+/* Galerie d’images côte-à-côte avec scroll interne */
 .front.double .images-wrapper {
   display: flex;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   white-space: nowrap;
   width: 100%;
-  max-height: 400px;
+  max-height: 400px; /* cadre fixe */
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   box-sizing: border-box;
