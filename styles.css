@@ -79,7 +79,7 @@ body {
   -webkit-overflow-scrolling: touch;
   white-space: nowrap;
   width: 100%;
-  max-height: 400px; /* cadre fixe */
+  max-height: 400px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   box-sizing: border-box;
@@ -134,6 +134,8 @@ body {
 .back ul {
   margin-left: 1em;
   margin-bottom: 1em;
+  list-style: none; /* Supprime les puces */
+  padding-left: 0;
 }
 .back p {
   margin-bottom: 1em;
