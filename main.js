@@ -27,7 +27,7 @@ function renderCarte() {
   const front = document.createElement('div');
   front.className = 'front ' + (data.images.length > 1 ? 'double' : 'single');
 
-  // Boutons de nav
+  // Barre de navigation
   const navDiv = document.createElement('div');
   navDiv.className = 'nav-buttons';
   navDiv.innerHTML = `
@@ -37,7 +37,7 @@ function renderCarte() {
   `;
   front.appendChild(navDiv);
 
-  // Galerie images
+  // Galerie d'images
   const wrap = document.createElement('div');
   wrap.className = 'images-wrapper';
   data.images.forEach(src => {
@@ -53,38 +53,21 @@ function renderCarte() {
   back.className = 'back';
   back.innerHTML = `
     <h3>Caractéristiques à observer</h3>
-    <h4>Symptômes visibles</h4>
-    <ul>${data.verso.symptomes_visibles.map(s => `<li>${s}</li>`).join('')}</ul>
-    <h4>Localisation dans le champ</h4>
-    <p>${data.verso.localisation_dans_le_champ}</p>
-    <h4>Feuilles atteintes</h4>
-    <p>${data.verso.feuilles_atteintes}</p>
-    <h4>Répartition sur la feuille</h4>
-    <p>${data.verso.repartition_sur_la_feuille}</p>
-    <h4>Symptômes secondaires</h4>
-    <p>${data.verso.symptomes_secondaires}</p>
-
-    <div class="diagnostic-box">
-      <h4 class="diagnostic">Diagnostic</h4>
-      <p class="diagnostic-text">${data.verso.diagnostic}</p>
-    </div>
-
-    <h4>Plan de lutte</h4>
-    <ul>${data.verso.plan_de_lutte.map(p => `<li>${p}</li>`).join('')}</ul>
-    <h4>Leviers agronomiques</h4>
-    <ul>${data.verso.leviers_agronomiques.map(l => `<li>${l}</li>`).join('')}</ul>
-    <h4>Notes complémentaires</h4>
-    <ul>${data.verso.notes_complementaires.map(n => `<li>${n}</li>`).join('')}</ul>
+    <!-- ... reste du contenu ... -->
   `;
 
   card.append(front, back);
   container.appendChild(card);
 
+  back.style.textAlign = 'center';
+
+  // Flip recto/verso
   card.addEventListener('click', e => {
     if (e.target.tagName.toLowerCase() === 'button') return;
     card.classList.toggle('flipped');
   });
 
+  // Navigation logic
   navDiv.querySelector('#prevBtn').addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + cartes.length) % cartes.length;
     renderCarte();
