@@ -48,7 +48,6 @@ body {
 .card .front {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* don't stretch children */
   padding: 0;
 }
 
@@ -76,15 +75,14 @@ body {
 /* Galerie d’images côte-à-côte avec scroll horizontal */
 .front .images-wrapper {
   display: flex;
-  flex-wrap: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
 }
 .front .images-wrapper img {
-  flex: 0 0 auto;
-  display: block;
-  height: auto;
+  display: inline-block;
   width: auto;
+  height: auto;
   max-width: none;
   margin-right: 4px;
 }
