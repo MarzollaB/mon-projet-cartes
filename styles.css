@@ -72,15 +72,15 @@ body {
   background: #0056b3;
 }
 
-/* Galerie d’images côte-à-côte avec scroll interne (double) */
-.front.double .images-wrapper {
+/* Galerie d’images côte-à-côte avec scroll interne */
+.front .images-wrapper {
   display: flex;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   white-space: nowrap;
   width: 100%;
 }
-.front.double .images-wrapper img {
+.front .images-wrapper img {
   flex: 0 0 auto;
   display: inline-block;
   width: auto;
@@ -91,19 +91,10 @@ body {
   margin: 0 4px;
 }
 
-/* Galerie pour une seule image : taille naturelle, pas de scroll */
-.front.single .images-wrapper {
-  display: block;
-  overflow: visible;
-  white-space: normal;
-  width: auto;
-}
-.front.single .images-wrapper img {
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: none;
+/* Zoom effect */
+.images-wrapper.zoomed img {
+  transform: scale(2);
+  transform-origin: center;
 }
 
 /* VERSO : caché par défaut */
