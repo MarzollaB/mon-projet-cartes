@@ -72,7 +72,7 @@ body {
   background: #0056b3;
 }
 
-/* Galerie d’images côte-à-côte avec scroll interne */
+/* Galerie double : scroll horizontal */
 .front.double .images-wrapper {
   display: flex;
   overflow-x: auto;
@@ -94,7 +94,7 @@ body {
   margin-right: 4px;
 }
 
-/* Galerie pour une seule image : taille naturelle, pas de scroll */
+/* Galerie single : taille naturelle */
 .front.single .images-wrapper {
   display: block;
   overflow: hidden;
@@ -103,11 +103,11 @@ body {
 }
 .front.single .images-wrapper img {
   display: block;
+  margin: 0 auto;
   width: auto;
   height: auto;
   max-width: 100%;
   max-height: none;
-  margin: 0 auto;
 }
 
 /* VERSO : caché par défaut */
@@ -132,7 +132,7 @@ body {
   margin-top: 0;
 }
 .back ul {
-  list-style: none; /* Supprime les puces */
+  list-style: none;
   margin: 0 0 1em 0;
   padding: 0;
 }
