@@ -34,6 +34,7 @@ function renderCarte() {
     <button id="prevBtn">Précédent</button>
     <button id="nextBtn">Suivant</button>
     <button id="randomBtn">Aléatoire</button>
+    <button id="zoomBtn">Zoom</button>
   `;
   front.appendChild(navDiv);
 
@@ -47,6 +48,11 @@ function renderCarte() {
     wrap.appendChild(img);
   });
   front.appendChild(wrap);
+
+  // Zoom button logic
+  navDiv.querySelector('#zoomBtn').addEventListener('click', () => {
+    wrap.classList.toggle('zoomed');
+  });
 
   // Back side
   const back = document.createElement('div');
