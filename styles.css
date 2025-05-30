@@ -72,24 +72,38 @@ body {
   background: #0056b3;
 }
 
-/* Galerie d’images côte-à-côte avec scroll interne */
-.front .images-wrapper {
+/* Galerie d’images côte-à-côte avec scroll interne (double) */
+.front.double .images-wrapper {
   display: flex;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   white-space: nowrap;
   width: 100%;
 }
-.front .images-wrapper img {
+.front.double .images-wrapper img {
   flex: 0 0 auto;
   display: inline-block;
-  /* Remove any forced resizing */
   width: auto;
   height: auto;
   max-width: none;
   max-height: none;
   object-fit: none;
   margin: 0 4px;
+}
+
+/* Galerie pour une seule image : taille naturelle, pas de scroll */
+.front.single .images-wrapper {
+  display: block;
+  overflow: visible;
+  white-space: normal;
+  width: auto;
+}
+.front.single .images-wrapper img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: none;
 }
 
 /* VERSO : caché par défaut */
