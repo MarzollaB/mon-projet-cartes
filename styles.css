@@ -87,17 +87,33 @@ body {
   height: auto;
   max-width: none;
   max-height: none;
-  object-fit: none;
   margin: 0 4px;
+  transform: none; /* Pas de zoom par défaut */
 }
 
-/* Zoom effect */
+/* Galerie pour une seule image : ajuste à la largeur du conteneur */
+.front.single .images-wrapper {
+  display: block;
+  overflow: hidden;
+  white-space: normal;
+  width: 100%;
+}
+.front.single .images-wrapper img {
+  display: block;
+  width: 100%; /* s'adapte au conteneur */
+  height: auto;
+  max-width: 100%;
+  max-height: none;
+  margin: 0 auto;
+}
+
+/* Zoom effect activé par bouton */
 .images-wrapper.zoomed img {
   transform: scale(2);
   transform-origin: center;
 }
 
-/* VERSO : caché par défaut */
+/* VERSO : caché par défaut */ */
 .card .back {
   display: none;
   padding: 16px;
