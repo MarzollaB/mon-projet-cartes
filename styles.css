@@ -132,10 +132,9 @@ body {
   margin-top: 0;
 }
 .back ul {
-  margin-left: 1em;
-  margin-bottom: 1em;
   list-style: none; /* Supprime les puces */
-  padding-left: 0;
+  margin: 0 0 1em 0;
+  padding: 0;
 }
 .back p {
   margin-bottom: 1em;
